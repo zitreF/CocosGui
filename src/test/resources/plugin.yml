@@ -1,0 +1,6 @@
+main: Main
+version: 1.0-SNAPSHOT
+name: CocosGuiTest
+api-version: 1.13
+commands:
+  test:
