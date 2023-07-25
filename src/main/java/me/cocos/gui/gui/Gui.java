@@ -2,7 +2,7 @@ package me.cocos.gui.gui;
 
 import me.cocos.gui.CocosGui;
 import me.cocos.gui.data.GuiItem;
-import me.cocos.gui.data.Structure;
+import me.cocos.gui.structure.Structure;
 import me.cocos.gui.gui.holder.GuiHolder;
 import me.cocos.gui.helper.ChatHelper;
 import org.bukkit.Bukkit;
@@ -80,6 +80,7 @@ public abstract class Gui {
 
     public void applyStructure(Structure structure) {
         this.structure = structure;
+        structure.apply(this);
     }
 
     public Structure getStructure() {
@@ -99,6 +100,10 @@ public abstract class Gui {
     }
     public BiConsumer<InventoryCloseEvent, Player> onClose() {
         return this.onClose;
+    }
+
+    public void open(Player player) {
+        player.openInventory(this.getInventory());
     }
 
     public abstract void dispose();

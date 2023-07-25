@@ -2,7 +2,7 @@ package me.cocos.gui.gui.impl;
 
 import me.cocos.gui.builder.gui.GuiBuilder;
 import me.cocos.gui.data.GuiItem;
-import me.cocos.gui.data.Structure;
+import me.cocos.gui.structure.Structure;
 import me.cocos.gui.gui.Gui;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -20,6 +20,7 @@ public final class NormalGui extends Gui {
     public void dispose() {
         this.actions.clear();
         this.inventory.clear();
+        if (structure != null) this.structure.dispose();
     }
 
     public static class NormalGuiBuilder implements GuiBuilder<NormalGui, NormalGuiBuilder> {

@@ -1,7 +1,7 @@
 package me.cocos.gui.builder.gui;
 
 import me.cocos.gui.data.GuiItem;
-import me.cocos.gui.data.Structure;
+import me.cocos.gui.structure.Structure;
 import me.cocos.gui.gui.Gui;
 import me.cocos.gui.gui.impl.NormalGui;
 import org.bukkit.entity.Player;
