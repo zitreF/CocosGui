@@ -4,12 +4,8 @@ import me.cocos.gui.data.GuiItem;
 import me.cocos.gui.gui.Gui;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.*;
 
-import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public final class Structure {
 
@@ -39,7 +35,6 @@ public final class Structure {
             }
         }
     }
-
 
     private GuiItem getGuiItem(char character) {
         return Optional.ofNullable(ingredients.get(character))
@@ -73,5 +68,9 @@ public final class Structure {
 
     public static Structure of(String... pattern) {
         return new Structure(pattern);
+    }
+
+    public String getPattern() {
+        return this.pattern;
     }
 }

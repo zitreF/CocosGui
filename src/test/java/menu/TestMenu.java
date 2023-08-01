@@ -46,7 +46,6 @@ public class TestMenu {
                         "& & & & & & & & &"
                         )
                         .ingredient('&', GuiItem.of(Material.BLACK_STAINED_GLASS))
-                        .contents('#', randomList)
                 )
                 .build();
         gui.open(player);

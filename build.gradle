@@ -1,11 +1,12 @@
 plugins {
     id 'java'
+    id 'maven-publish'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
     id("xyz.jpenilla.run-paper") version "1.0.6"
 }
 
 group = 'me.cocos'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 compileJava.options.encoding = 'UTF-8'
 
@@ -50,12 +51,6 @@ tasks.withType(JavaCompile).configureEach {
     }
 }
 
-//tasks.register('testJar', ShadowJar) {
-//    archiveClassifier.set("test")
-//    from sourceSets.main.output, sourceSets.test.output
-//    configurations = [project.configurations.testRuntimeClasspath]
-//}
-
 tasks.shadowJar {
     archiveClassifier.set("test")
     from sourceSets.main.output, sourceSets.test.output
@@ -68,6 +63,21 @@ processResources {
     filteringCharset 'UTF-8'
     filesMatching('plugin.yml') {
         expand props
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'me.cocos'
+            artifactId = 'cocosgui'
+            version = '1.0'
+
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
     }
 }
 
