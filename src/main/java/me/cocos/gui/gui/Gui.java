@@ -29,7 +29,6 @@ public abstract class Gui {
     public Gui(String name, int rows) {
         this.inventory = Bukkit.createInventory(new GuiHolder(this), rows*9, ChatHelper.colored(name));
         this.actions = new HashMap<>();
-        CocosGui.initialize();
     }
 
     public int getSize() {

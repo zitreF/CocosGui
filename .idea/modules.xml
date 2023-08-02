@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CocosGui.iml" filepath="$PROJECT_DIR$/.idea/modules/CocosGui.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CocosGui.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CocosGui.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CocosGui.test.iml" filepath="$PROJECT_DIR$/.idea/modules/CocosGui.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/me.cocos.CocosGui.main.iml" filepath="$PROJECT_DIR$/.idea/modules/me.cocos.CocosGui.main.iml" />

@@ -12,17 +12,13 @@ import java.util.stream.Stream;
 
 public final class CocosGui {
 
-    private static boolean initialized;
-
     public static final Plugin PLUGIN = JavaPlugin.getProvidingPlugin(CocosGui.class);
 
     public static void initialize() {
-        if (initialized) return;
         PluginManager pluginManager = Bukkit.getPluginManager();
         Stream.of(
                 new InventoryClickListener(),
                 new InventoryCloseListener()
         ).forEach(listener -> pluginManager.registerEvents(listener, PLUGIN));
-        initialized = true;
     }
 }

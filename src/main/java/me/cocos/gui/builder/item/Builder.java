@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class Builder<M extends ItemMeta> {
 
@@ -24,12 +25,12 @@ public abstract class Builder<M extends ItemMeta> {
     }
 
     public Builder<M> lore(List<String> lore) {
-        this.meta.setLore(ChatHelper.colored(lore));
+        this.meta.setLore(lore.stream().map(ChatHelper::colored).collect(Collectors.toList()));
         return this;
     }
 
     public Builder<M> lore(String... lore) {
-        this.meta.setLore(Arrays.asList(lore));
+        this.meta.setLore(Arrays.stream(lore).map(ChatHelper::colored).collect(Collectors.toList()));
         return this;
     }
 
