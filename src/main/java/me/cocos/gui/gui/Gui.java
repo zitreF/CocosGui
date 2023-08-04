@@ -48,6 +48,12 @@ public abstract class Gui {
         }
     }
 
+    public void addItem(GuiItem item, int times) {
+        for (int i = 0; i < times; i++) {
+            this.setItem(this.inventory.firstEmpty(), item);
+        }
+    }
+
     public GuiItem getGuiItem(int slot) {
         return this.actions.get(slot);
     }

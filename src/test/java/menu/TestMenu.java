@@ -1,6 +1,7 @@
 package menu;
 
 import me.cocos.gui.builder.gui.GuiBuilder;
+import me.cocos.gui.builder.item.impl.ItemBuilder;
 import me.cocos.gui.data.GuiItem;
 import me.cocos.gui.structure.Structure;
 import me.cocos.gui.gui.Gui;
@@ -48,6 +49,20 @@ public class TestMenu {
                         .ingredient('&', GuiItem.of(Material.BLACK_STAINED_GLASS))
                 )
                 .build();
+        gui.open(player);
+    }
+
+    public void openThirdGui(Player player) {
+        List<GuiItem> randomList = Arrays.stream(Material.values())
+                .filter(material -> material != Material.AIR)
+                .limit(10)
+                .map(GuiItem::of)
+                .toList();
+        Gui gui = GuiBuilder.normal("&7Test 2", 3)
+                .onClick((event, p) -> event.setCancelled(true))
+                .disposable(true)
+                .build();
+        gui.setItem(0, ItemBuilder.from(Material.TERRACOTTA).asGuiItem());
         gui.open(player);
     }
 }
