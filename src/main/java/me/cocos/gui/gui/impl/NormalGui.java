@@ -52,6 +52,12 @@ public final class NormalGui extends Gui {
         }
 
         @Override
+        public NormalGuiBuilder addItem(GuiItem item, int times) {
+            this.normalGui.addItem(item, times);
+            return this;
+        }
+
+        @Override
         public NormalGuiBuilder addItems(GuiItem... items) {
             this.normalGui.addItems(items);
             return this;

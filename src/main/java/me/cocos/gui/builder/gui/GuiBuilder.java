@@ -18,6 +18,8 @@ public interface GuiBuilder<G extends Gui, B extends GuiBuilder<G, B>> {
 
     B item(int slot, GuiItem item);
 
+    B addItem(GuiItem item, int times);
+
     B addItems(GuiItem... items);
 
     B onClick(BiConsumer<InventoryClickEvent, Player> onClick);
