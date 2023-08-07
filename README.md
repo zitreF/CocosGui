@@ -2,13 +2,27 @@
 The comfortable way of creating and managing bukkit inventories.
 
 # Setup
+```xml
+<repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+</repository>
+
+<dependency>
+    <groupId>com.github.zitreF</groupId>
+    <artifactId>CocosGui</artifactId>
+    <version>1.2</version>
+</dependency>
+```
+
+
 ```gradle
 repositories {
   maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-  implementation 'com.github.zitreF:CocosGui:1.1'
+  implementation 'com.github.zitreF:CocosGui:1.2'
 }
 ```
 
