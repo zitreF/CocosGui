@@ -1,6 +1,8 @@
 package me.cocos.gui.builder.gui;
 
 import me.cocos.gui.data.GuiItem;
+import me.cocos.gui.gui.impl.PaginatedGui;
+import me.cocos.gui.pattern.Pattern;
 import me.cocos.gui.structure.Structure;
 import me.cocos.gui.gui.Gui;
 import me.cocos.gui.gui.impl.NormalGui;
@@ -18,6 +20,10 @@ public interface GuiBuilder<G extends Gui, B extends GuiBuilder<G, B>> {
 
     B item(int slot, GuiItem item);
 
+    B blockPlayerInventory(boolean value);
+
+    B pattern(Pattern pattern, GuiItem guiItem);
+
     B addItem(GuiItem item, int times);
 
     B addItems(GuiItem... items);
@@ -32,5 +38,9 @@ public interface GuiBuilder<G extends Gui, B extends GuiBuilder<G, B>> {
 
     static NormalGui.NormalGuiBuilder normal(String name, int rows) {
         return new NormalGui.NormalGuiBuilder(name, rows);
+    }
+
+    static PaginatedGui.PaginatedGuiBuilder paginated(String name, int rows) {
+        return new PaginatedGui.PaginatedGuiBuilder(name, rows);
     }
 }

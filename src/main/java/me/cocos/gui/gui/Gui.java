@@ -2,6 +2,7 @@ package me.cocos.gui.gui;
 
 import me.cocos.gui.CocosGui;
 import me.cocos.gui.data.GuiItem;
+import me.cocos.gui.pattern.Pattern;
 import me.cocos.gui.structure.Structure;
 import me.cocos.gui.gui.holder.GuiHolder;
 import me.cocos.gui.helper.ChatHelper;
@@ -38,6 +39,10 @@ public abstract class Gui {
     public void setItem(int slot, GuiItem guiItem) {
         this.actions.put(slot, guiItem);
         this.inventory.setItem(slot, guiItem.getItemStack());
+    }
+
+    public void applyPattern(Pattern pattern, GuiItem guiItem) {
+        pattern.getAction().accept(this, guiItem);
     }
 
     public void addItems(GuiItem... guiItems) {

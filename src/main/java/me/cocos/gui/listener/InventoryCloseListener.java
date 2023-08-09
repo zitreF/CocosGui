@@ -2,6 +2,7 @@ package me.cocos.gui.listener;
 
 import me.cocos.gui.gui.Gui;
 import me.cocos.gui.gui.holder.GuiHolder;
+import me.cocos.gui.gui.impl.PaginatedGui;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

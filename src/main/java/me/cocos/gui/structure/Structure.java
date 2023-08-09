@@ -73,4 +73,12 @@ public final class Structure {
     public String getPattern() {
         return this.pattern;
     }
+
+    public Map<Character, GuiItem> getIngredients() {
+        return this.ingredients;
+    }
+
+    public Map<Character, List<GuiItem>> getIngredientList() {
+        return this.ingredientList;
+    }
 }

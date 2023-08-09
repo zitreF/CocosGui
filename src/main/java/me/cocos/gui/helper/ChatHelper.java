@@ -19,7 +19,7 @@ public final class ChatHelper {
         return ChatColor.translateAlternateColorCodes('&', text);
     }
 
-    public static String coloredHex(String text) {
+    public static String hex(String text) {
         Matcher matcher = HEX_PATTERN.matcher(text);
 
         StringBuilder builder = new StringBuilder();
@@ -36,7 +36,7 @@ public final class ChatHelper {
         return lines.stream().map(ChatHelper::colored).toList();
     }
 
-    public static List<String> coloredHex(List<String> lines) {
-        return lines.stream().map(ChatHelper::coloredHex).toList();
+    public static List<String> hex(List<String> lines) {
+        return lines.stream().map(ChatHelper::hex).toList();
     }
 }

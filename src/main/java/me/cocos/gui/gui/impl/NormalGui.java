@@ -2,8 +2,9 @@ package me.cocos.gui.gui.impl;
 
 import me.cocos.gui.builder.gui.GuiBuilder;
 import me.cocos.gui.data.GuiItem;
-import me.cocos.gui.structure.Structure;
 import me.cocos.gui.gui.Gui;
+import me.cocos.gui.pattern.Pattern;
+import me.cocos.gui.structure.Structure;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -39,15 +40,25 @@ public final class NormalGui extends Gui {
 
         @Override
         public NormalGuiBuilder ingredient(char character, GuiItem guiItem) {
-            if (normalGui.getStructure() == null) {
-                throw new IllegalCallerException("Gui's structure is null! You cannot set ingredient to null Structure!");
-            }
+            this.normalGui.getStructure().ingredient(character, guiItem);
             return this;
         }
 
         @Override
         public NormalGuiBuilder item(int slot, GuiItem item) {
             this.normalGui.setItem(slot, item);
+            return this;
+        }
+
+        @Override
+        public NormalGuiBuilder blockPlayerInventory(boolean value) {
+            this.normalGui.setBlockPlayerInventory(value);
+            return this;
+        }
+
+        @Override
+        public NormalGuiBuilder pattern(Pattern pattern, GuiItem guiItem) {
+            this.normalGui.applyPattern(pattern, guiItem);
             return this;
         }
 
