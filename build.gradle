@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'me.cocos'
-version = '1.2'
+version = '1.4'
 
 compileJava.options.encoding = 'UTF-8'
 
@@ -71,7 +71,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'me.cocos'
             artifactId = 'cocosgui'
-            version = '1.2'
+            version = '1.4'
 
             from components.java
         }
