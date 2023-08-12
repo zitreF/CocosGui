@@ -11,7 +11,7 @@ The comfortable way of creating and managing bukkit inventories.
 <dependency>
     <groupId>com.github.zitreF</groupId>
     <artifactId>CocosGui</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
 </dependency>
 ```
 
@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.zitreF:CocosGui:1.4'
+  implementation 'com.github.zitreF:CocosGui:1.5'
 }
 ```
 
