@@ -18,6 +18,8 @@ public interface GuiBuilder<G extends Gui, B extends GuiBuilder<G, B>> {
 
     B ingredient(char character, GuiItem guiItem);
 
+    B items(GuiItem item, int... slots);
+
     B item(int slot, GuiItem item);
 
     B blockPlayerInventory(boolean value);

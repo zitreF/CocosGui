@@ -105,6 +105,12 @@ public final class PaginatedGui extends Gui {
         }
 
         @Override
+        public PaginatedGuiBuilder items(GuiItem item, int... slots) {
+            this.paginatedGui.setItems(item, slots);
+            return this;
+        }
+
+        @Override
         public PaginatedGuiBuilder item(int slot, GuiItem item) {
             this.paginatedGui.setItem(slot, item);
             return this;

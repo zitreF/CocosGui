@@ -45,6 +45,12 @@ public final class NormalGui extends Gui {
         }
 
         @Override
+        public NormalGuiBuilder items(GuiItem item, int... slots) {
+            this.normalGui.setItems(item, slots);
+            return this;
+        }
+
+        @Override
         public NormalGuiBuilder item(int slot, GuiItem item) {
             this.normalGui.setItem(slot, item);
             return this;
