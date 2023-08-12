@@ -6,7 +6,7 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionType;
 
-public final class PotionBuilder extends Builder<PotionMeta> {
+public final class PotionBuilder extends Builder<PotionMeta, PotionBuilder> {
 
     public PotionBuilder(Type type) {
         super(type.material);
@@ -15,6 +15,15 @@ public final class PotionBuilder extends Builder<PotionMeta> {
     public PotionBuilder potionType(PotionType potionType) {
         this.meta.setBasePotionData(new PotionData(potionType));
         return this;
+    }
+
+    @Override
+    public PotionBuilder self() {
+        return this;
+    }
+
+    public static PotionBuilder from(Type type) {
+        return new PotionBuilder(type);
     }
 
     public enum Type {

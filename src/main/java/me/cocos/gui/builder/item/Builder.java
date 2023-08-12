@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class Builder<M extends ItemMeta> {
+public abstract class Builder<M extends ItemMeta, T extends Builder<M, T>> {
 
     protected final M meta;
     private final ItemStack itemStack;
@@ -24,41 +24,46 @@ public abstract class Builder<M extends ItemMeta> {
         this.meta = (M) itemStack.getItemMeta();
     }
 
-    public Builder<M> lore(List<String> lore) {
+    public T lore(List<String> lore) {
         this.meta.setLore(lore.stream().map(ChatHelper::colored).collect(Collectors.toList()));
-        return this;
+        return this.self();
     }
 
-    public Builder<M> lore(String... lore) {
+    public T lore(String... lore) {
         this.meta.setLore(Arrays.stream(lore).map(ChatHelper::colored).collect(Collectors.toList()));
-        return this;
+        return this.self();
     }
 
-    public Builder<M> addLore(String lore) {
+    public T type(Material material) {
+        this.itemStack.setType(material);
+        return this.self();
+    }
+
+    public T addLore(String lore) {
         List<String> lores = this.meta.getLore() == null ? new ArrayList<>() : this.meta.getLore();
         lores.add(ChatHelper.colored(lore));
         this.meta.setLore(lores);
-        return this;
+        return this.self();
     }
 
-    public Builder<M> name(String name) {
+    public T name(String name) {
         this.meta.setDisplayName(ChatHelper.colored(name));
-        return this;
+        return this.self();
     }
 
-    public Builder<M> amount(int amount) {
+    public T amount(int amount) {
         this.itemStack.setAmount(amount);
-        return this;
+        return this.self();
     }
 
-    public Builder<M> enchantment(Enchantment enchantment, int level) {
+    public T enchantment(Enchantment enchantment, int level) {
         this.meta.addEnchant(enchantment, level, true);
-        return this;
+        return this.self();
 
     }
-    public Builder<M> flag(ItemFlag... flags) {
+    public T flag(ItemFlag... flags) {
         this.meta.addItemFlags(flags);
-        return this;
+        return this.self();
     }
 
     public GuiItem asGuiItem() {
@@ -70,4 +75,5 @@ public abstract class Builder<M extends ItemMeta> {
         return itemStack;
     }
 
+    public abstract T self();
 }

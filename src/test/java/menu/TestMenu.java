@@ -34,6 +34,10 @@ public class TestMenu {
                             p.sendMessage("glass");
                         }))))
                 .build();
+        ItemBuilder builder = ItemBuilder.from(Material.STONE)
+                .name("test")
+                .addLore("test add lore");
+        gui.setItem(0, builder.asGuiItem());
         gui.open(player);
     }
 

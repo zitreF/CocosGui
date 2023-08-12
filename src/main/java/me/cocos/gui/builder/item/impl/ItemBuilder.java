@@ -7,7 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
-public final class ItemBuilder extends Builder<ItemMeta> {
+public final class ItemBuilder extends Builder<ItemMeta, ItemBuilder> {
 
     public ItemBuilder(Material material) {
         super(material);
@@ -20,6 +20,12 @@ public final class ItemBuilder extends Builder<ItemMeta> {
         ((LeatherArmorMeta) this.meta).setColor(color);
         return this;
     }
+
+    @Override
+    public ItemBuilder self() {
+        return this;
+    }
+
 
     public static ItemBuilder from(Material material) {
         return new ItemBuilder(material);

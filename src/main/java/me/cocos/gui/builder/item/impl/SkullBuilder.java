@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 import java.lang.reflect.Field;
 import java.util.UUID;
 
-public final class SkullBuilder extends Builder<SkullMeta> {
+public final class SkullBuilder extends Builder<SkullMeta, SkullBuilder> {
 
     public SkullBuilder() {
         super(Material.PLAYER_HEAD);
@@ -45,5 +45,10 @@ public final class SkullBuilder extends Builder<SkullMeta> {
         SkullBuilder skullBuilder = new SkullBuilder();
         skullBuilder.owner(owner);
         return skullBuilder;
+    }
+
+    @Override
+    public SkullBuilder self() {
+        return this;
     }
 }
