@@ -82,7 +82,7 @@ public class TestMenu {
                 .limit(30)
                 .map(GuiItem::of)
                 .toList();
-        PaginatedGui paginatedGui = GuiBuilder.paginated(ChatHelper.hex("&#1db8fbT&#39a1fbe&#568afcs&#7274fct &#8e5dfcH&#ab46fdE&#c72ffdX"), 3)
+        PaginatedGui paginatedGui = GuiBuilder.paginated(ChatHelper.coloredLegacy("&#1db8fbT&#39a1fbe&#568afcs&#7274fct &#8e5dfcH&#ab46fdE&#c72ffdX"), 3)
                 .structure(
                         Structure.of(
                                 "& & & & & & & & &",
