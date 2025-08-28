@@ -28,9 +28,9 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
     compileOnly("com.mojang:authlib:1.5.25")
-    testCompileOnly("org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT")
+    testCompileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
     testCompileOnly("com.mojang:authlib:1.5.25")
 }
 

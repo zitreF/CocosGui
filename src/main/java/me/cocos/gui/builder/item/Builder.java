@@ -3,6 +3,7 @@ package me.cocos.gui.builder.item;
 import me.cocos.gui.builder.item.impl.ItemBuilder;
 import me.cocos.gui.data.GuiItem;
 import me.cocos.gui.helper.ChatHelper;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -19,50 +20,51 @@ public abstract class Builder<M extends ItemMeta, T extends Builder<M, T>> {
     protected final M meta;
     private final ItemStack itemStack;
 
+    @SuppressWarnings("unchecked")
     public Builder(Material material) {
         this.itemStack = new ItemStack(material);
         this.meta = (M) itemStack.getItemMeta();
     }
 
     public T lore(List<String> lore) {
-        this.meta.setLore(lore.stream().map(ChatHelper::colored).collect(Collectors.toList()));
+        meta.lore(lore.stream().map(ChatHelper::colored).collect(Collectors.toList()));
         return this.self();
     }
 
     public T lore(String... lore) {
-        this.meta.setLore(Arrays.stream(lore).map(ChatHelper::colored).collect(Collectors.toList()));
+        meta.lore(Arrays.stream(lore).map(ChatHelper::colored).collect(Collectors.toList()));
         return this.self();
     }
 
     public T type(Material material) {
-        this.itemStack.setType(material);
+        itemStack.setType(material);
         return this.self();
     }
 
     public T addLore(String lore) {
-        List<String> lores = this.meta.getLore() == null ? new ArrayList<>() : this.meta.getLore();
+        List<Component> lores = meta.lore() == null ? new ArrayList<>() : meta.lore();
         lores.add(ChatHelper.colored(lore));
-        this.meta.setLore(lores);
+        meta.lore(lores);
         return this.self();
     }
 
     public T name(String name) {
-        this.meta.setDisplayName(ChatHelper.colored(name));
+        meta.displayName(ChatHelper.colored(name));
         return this.self();
     }
 
     public T amount(int amount) {
-        this.itemStack.setAmount(amount);
+        itemStack.setAmount(amount);
         return this.self();
     }
 
     public T enchantment(Enchantment enchantment, int level) {
-        this.meta.addEnchant(enchantment, level, true);
+        meta.addEnchant(enchantment, level, true);
         return this.self();
 
     }
     public T flag(ItemFlag... flags) {
-        this.meta.addItemFlags(flags);
+        meta.addItemFlags(flags);
         return this.self();
     }
 
@@ -71,7 +73,7 @@ public abstract class Builder<M extends ItemMeta, T extends Builder<M, T>> {
     }
 
     public ItemStack build() {
-        this.itemStack.setItemMeta(meta);
+        itemStack.setItemMeta(meta);
         return itemStack;
     }
 

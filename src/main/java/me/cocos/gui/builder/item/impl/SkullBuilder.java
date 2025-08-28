@@ -3,7 +3,9 @@ package me.cocos.gui.builder.item.impl;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import me.cocos.gui.builder.item.Builder;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.lang.reflect.Field;
@@ -16,7 +18,16 @@ public final class SkullBuilder extends Builder<SkullMeta, SkullBuilder> {
     }
 
     public SkullBuilder owner(String name) {
-        meta.setOwner(name);
+        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayerIfCached(name);
+        if (offlinePlayer != null) {
+            meta.setOwningPlayer(offlinePlayer);
+        }
+        return this;
+    }
+
+    public SkullBuilder owner(UUID uuid) {
+        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
+        meta.setOwningPlayer(offlinePlayer);
         return this;
     }
 

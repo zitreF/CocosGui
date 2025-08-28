@@ -13,7 +13,7 @@ public final class PotionBuilder extends Builder<PotionMeta, PotionBuilder> {
     }
 
     public PotionBuilder potionType(PotionType potionType) {
-        this.meta.setBasePotionData(new PotionData(potionType));
+        meta.setBasePotionData(new PotionData(potionType));
         return this;
     }
 

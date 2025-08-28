@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$/../.." dumb="true">
       <excludeFolder url="file://$MODULE_DIR$/../../run/world_nether/DIM-1/poi" />
       <excludeFolder url="file://$MODULE_DIR$/../../run/world_the_end/DIM1/poi" />
+      <excludeFolder url="file://$MODULE_DIR$/../../run" />
     </content>
   </component>
 </module>
