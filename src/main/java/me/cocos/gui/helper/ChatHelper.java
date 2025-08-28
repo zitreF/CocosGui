@@ -2,6 +2,7 @@ package me.cocos.gui.helper;
 
 import org.bukkit.ChatColor;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,7 +10,6 @@ import java.util.regex.Pattern;
 public final class ChatHelper {
 
     private static final Pattern HEX_PATTERN = Pattern.compile("&#(\\w{5}[0-9a-f])");
-
 
     private ChatHelper() {
         throw new UnsupportedOperationException("You cannot do this!");
@@ -32,7 +32,7 @@ public final class ChatHelper {
 
     }
 
-    public static List<String> colored(List<String> lines) {
+    public static List<String> colored(Collection<String> lines) {
         return lines.stream().map(ChatHelper::colored).toList();
     }
 
