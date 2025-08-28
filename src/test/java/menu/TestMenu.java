@@ -35,8 +35,8 @@ public class TestMenu {
                         }))))
                 .build();
         ItemBuilder builder = ItemBuilder.from(Material.STONE)
-                .name("test")
-                .addLore("test add lore");
+                .name("&#E04FDCt&#C960D7e&#B170D2s&#9A81CDt &#6BA3C3h&#53B3BEe&#3CC4B9x")
+                .addLore("&7test lore");
         gui.setItem(0, builder.asGuiItem());
         gui.open(player);
     }
@@ -82,7 +82,7 @@ public class TestMenu {
                 .limit(30)
                 .map(GuiItem::of)
                 .toList();
-        PaginatedGui paginatedGui = GuiBuilder.paginated(ChatHelper.coloredLegacy("&#1db8fbT&#39a1fbe&#568afcs&#7274fct &#8e5dfcH&#ab46fdE&#c72ffdX"), 3)
+        PaginatedGui paginatedGui = GuiBuilder.paginated("&#1db8fbT&#39a1fbe&#568afcs&#7274fct &#8e5dfcH&#ab46fdE&#c72ffdX", 3)
                 .structure(
                         Structure.of(
                                 "& & & & & & & & &",

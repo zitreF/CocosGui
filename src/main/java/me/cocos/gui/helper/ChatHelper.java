@@ -1,6 +1,7 @@
 package me.cocos.gui.helper;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.ChatColor;
 
@@ -28,7 +29,7 @@ public final class ChatHelper {
     }
 
     public static Component colored(String text) {
-        return SERIALIZER.deserialize(text);
+        return SERIALIZER.deserialize(text).decoration(TextDecoration.ITALIC, text.contains("&o"));
     }
 
     public static List<Component> colored(Collection<String> lines) {
